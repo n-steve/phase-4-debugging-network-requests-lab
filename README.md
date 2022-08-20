@@ -63,11 +63,18 @@ developing your own process.
 - Add a new toy when the toy form is submitted
 
   - How I debugged:
+    I debugged the form by carefully revising the create API for rails by first going to the Config-Routes.rb. typing rails routes. to make sure it's there and valid.
+    second I began to add error responses for anything not found 404 and 500 in the server with ActiveRecord::Invalid and NotFound
+    third I tested why the create submit form wasn't working and it returned and error of 500.
+    I carefully revised the create and saw a typo error of Toys.create and should be Toy.create.
 
 - Update the number of likes for a toy
 
   - How I debugged:
+    I debugged the number of likes for toy by doing the same thing above. first checking if the routing is correct. to which the :update route was correct. Next I added the response errors to the #update method toy.update! As well as consolidate the method to look cleaner for better review. Then I realized that it does not have a render json:
+    Thats why it returned an eror of 204 No Content.
 
 - Donate a toy to Goodwill (and delete it from our database)
 
   - How I debugged:
+    I debugged the Donate Button by doing the same thing. First reviewing the routes and found that the routes did not have a :destroy which solved the issue.
